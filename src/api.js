@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export function getURLS(id, data) {
-    return axios.get(`https://guviurlshortener.herokuapp.com/${id}`, {
+    return axios.get(`https://guviurlshortener.herokuapp.com/urls/${id}`, {
         headers: {
             authorization: window.localStorage.getItem("app_token")
         }
