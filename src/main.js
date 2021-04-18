@@ -67,7 +67,7 @@ function Main() {
                                 urlData.map((url, index) => {
                                     return <tr>
                                         <td>{url.longURL}</td>
-                                        <td><a href={`http://localhost:7000/${index}+${url.shortURL}`} target="_blank">{url.shortURL}</a ></td>
+                                        <td><a href={`https://guviurlshortener.herokuapp.com/${index}+${url.shortURL}`} target="_blank">{url.shortURL}</a ></td>
                                     </tr>
                                 })
                             }
