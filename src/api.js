@@ -17,10 +17,10 @@ export function postURL(id, url) {
 };
 
 export function postUserRegister(user) {
-    return axios.post("https://guviurlshortener.herokuapp.com", user);
+    return axios.post("https://guviurlshortener.herokuapp.com/register", user);
 };
 
 export function postUserLogin(user) {
-    return axios.post("https://guviurlshortener.herokuapp.com", user);
+    return axios.post("https://guviurlshortener.herokuapp.com/login", user);
 };
 
