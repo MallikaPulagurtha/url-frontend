@@ -11,6 +11,8 @@ import Welcome from './welcome';
 import Register from './register'
 import Login from './login'
 import Main from './main'
+import Urls from './urls'
+
 
 function App() {
 
@@ -27,6 +29,8 @@ function App() {
           <Route path="/main/:id" exact="true">
             <Main></Main>
           </Route>
+          <Route path="/urls/:id" exact="true"><Urls></Urls></Route>
+
         </Switch>
 
       </Router>

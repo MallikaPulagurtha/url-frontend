@@ -1,50 +1,51 @@
-// import React, { useState, useEffect } from "react";
-// import { Link } from "react-router-dom";
-// import { getURLS } from "./api";
+import React, { useState, useEffect } from "react";
+import { Link, useParams } from "react-router-dom";
+import { getURLS } from "./api";
 
-// function URLS() {
+function URLS() {
 
-//     const [urlData, setUrlData] = useState([]);
+    const params = useParams();
+    console.log(params);
 
-//     useEffect(async () => {
-//         let urls = await getURLS();
-//         setUrlData(...urlData, urls.data);
-//     }, []);
+    const [urlData, setUrlData] = useState([]);
 
-//     console.log(urlData);
+    useEffect(async () => {
+        let urls = await getURLS(params.id);
+        setUrlData(urls.data.links);
+    }, []);
 
-//     return (
-//         <>
-//             <table className="table data">
-//                 <div className="row">
-//                     <div className="col-2"></div>
-//                     <div className="col-8 urls">
-//                         <thead className="thead">
-//                             <tr>
-//                                 <th scope="col">Long URL</th>
-//                                 <th scope="col">Short URL</th>
-//                             </tr>
-//                         </thead>
-//                         <tbody>
-//                             {
-//                                 urlData.map((links, index) => {
-//                                     return <tr>
-//                                         <td>{links.longURL}</td>
-//                                         <td><a href={`http://localhost:7000/${links.shortURL}`} target="_blank">{links.shortURL}</a></td>
-//                                     </tr>
-//                                 })
-//                             }
+    console.log(urlData);
 
-//                         </tbody>
-//                     </div>
-//                     <div className="col-2"></div>
-//                 </div>
-//             </table>
-//             <div className="generatebtn"><button type="button" className="btn btn-primary generate">
-//                 <Link to="/main" style={{ color: '#FFF' }}>Generate Another Link</Link>
-//             </button></div>
-//         </>
-//     )
-// }
+    return (
+        <>
+            <table className="table data">
+                <div className="row">
+                    <div className="col-2"></div>
+                    <div className="col-8 urls">
+                        <thead className="thead">
+                            <tr>
+                                <th scope="col">Long URL</th>
+                                <th scope="col">Short URL</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                                urlData.map((links, index) => {
+                                    return <tr>
+                                        <td>{links.longURL}</td>
+                                        <td><a href={`http://localhost:7000/${links.shortURL}`} target="_blank">{links.shortURL}</a></td>
+                                    </tr>
+                                })
+                            }
 
-// export default URLS;
+                        </tbody>
+                    </div>
+                    <div className="col-2"></div>
+                </div>
+            </table>
+
+        </>
+    )
+}
+
+export default URLS;
